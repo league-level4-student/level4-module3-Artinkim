@@ -13,7 +13,6 @@ class ExceptionsTest {
 	@Test
 	public void testIndexOOBException() {
 		int[] vars = {0, 1, 2, 3};
-			
 		try {
 			vars[0] = 4;
 			assertArrayEquals(vars, new int[] {4, 1, 2, 3});
@@ -32,8 +31,19 @@ class ExceptionsTest {
 	//3. Complete the JUnit test method to test the divide method.
 	@Test
 	public void testDivideByZeroException() {
-		
+		try {
+		double n = 1.0;
+		assertEquals(10,em.divide(10, n));
+		n = 0.0;
+		assertEquals(10,em.divide(10, n));
+		fail("IllegalArgumentException not thrown");
+		} catch(IllegalArgumentException e) {
+			e.printStackTrace();
+			double n = 1.0;
+			assertEquals(10,em.divide(10, n));
+		}
 	}
+		
 	
 	//4. In the ExceptionMethods class, write a method called reverseString that takes a
 	//   String and returns the reverse of that String. It should throw an IllegalStateException
@@ -42,7 +52,14 @@ class ExceptionsTest {
 	//5. Complete the JUnit test method to test the reverseStringMethod.
 	@Test
 	public void testReverseString() {
-		
+		try {
+		assertEquals("hello",em.reverseString("olleh"));
+		assertEquals("",em.reverseString(""));
+		fail("IllegalStateExceptiond not thrown");
+		} catch(IllegalStateException e) {
+			e.printStackTrace();
+			assertEquals("hello",em.reverseString("olleh"));
+		}
 	}
 	
 	

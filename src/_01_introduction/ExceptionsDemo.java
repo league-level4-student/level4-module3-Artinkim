@@ -7,7 +7,13 @@ public class ExceptionsDemo {
 		// All exceptions extend from Java's Exception class.
 		// You can make your own exceptions by making a class that 
 		// extends Exception
-		
+		try {
+			ExceptionsDemo.testMethod1(6);
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		// 1. Call testMethod1 with a value less than 5.
 		//    It should give you an error.
 		//    This is because testMethod1 can potentially throw
@@ -24,8 +30,14 @@ public class ExceptionsDemo {
 		
 		// 3. Create a new class called CustomException that extends Exception.
 		//    Add a void method called terminate that simply calls System.exit(0);
-		
+		CustomException c = new CustomException();
 		// 5. Call testMethod2 with a negative number in a try/catch block.
+		try {
+			CustomException.testMethod2(-1);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			c.terminate();
+		}
 		//    In the catch block, call the terminate method using the 
 		//    CustomException object.
 		//    This demonstrates how custom exception classes can be used to
